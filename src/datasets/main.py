@@ -2,6 +2,7 @@ from .mnist import MNIST_Dataset
 from .fmnist import FashionMNIST_Dataset
 from .cifar10 import CIFAR10_Dataset
 from .odds import ODDSADDataset
+from .logs import LogSADDataset
 
 
 def load_dataset(dataset_name, data_path, normal_class, known_outlier_class, n_known_outlier_classes: int = 0,
@@ -44,6 +45,15 @@ def load_dataset(dataset_name, data_path, normal_class, known_outlier_class, n_k
 
     if dataset_name in ('arrhythmia', 'cardio', 'satellite', 'satimage-2', 'shuttle', 'thyroid'):
         dataset = ODDSADDataset(root=data_path,
+                                dataset_name=dataset_name,
+                                n_known_outlier_classes=n_known_outlier_classes,
+                                ratio_known_normal=ratio_known_normal,
+                                ratio_known_outlier=ratio_known_outlier,
+                                ratio_pollution=ratio_pollution,
+                                random_state=random_state)
+    
+    if dataset_name in ('hdfslog'):
+        dataset = LogSADDataset(root=data_path,
                                 dataset_name=dataset_name,
                                 n_known_outlier_classes=n_known_outlier_classes,
                                 ratio_known_normal=ratio_known_normal,
