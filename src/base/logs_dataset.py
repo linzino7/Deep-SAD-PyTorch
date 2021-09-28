@@ -21,7 +21,7 @@ def read_file(path):
   return datas
 
 def logkey_to_int(logkey):
-    windows = 20
+    windows = 64
     tmp = logkey.split(" ")
     arr = [int(i) for i in tmp]
     if len(arr) > windows:
