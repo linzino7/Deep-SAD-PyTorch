@@ -43,6 +43,12 @@ class MNIST_Dataset(TorchvisionDataset):
                                                              ratio_known_normal, ratio_known_outlier, ratio_pollution)
         train_set.semi_targets[idx] = torch.tensor(semi_targets)  # set respective semi-supervised labels
 
+        # print(idx)
+        print('idx:' , len(idx))
+        # print(semi_targets)
+        print('train_set.semi_targets',len(train_set.semi_targets))
+        print('fun semi_targets', len(semi_targets))
+
         # Subset train_set to semi-supervised setup
         self.train_set = Subset(train_set, idx)
 

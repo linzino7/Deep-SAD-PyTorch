@@ -11,7 +11,7 @@ def load_dataset(dataset_name, data_path, normal_class, known_outlier_class, n_k
     """Loads the dataset."""
 
     implemented_datasets = ('mnist', 'fmnist', 'cifar10',
-                            'arrhythmia', 'cardio', 'satellite', 'satimage-2', 'shuttle', 'thyroid')
+                            'arrhythmia', 'cardio', 'satellite', 'satimage-2', 'shuttle', 'thyroid','hdfslog')
     assert dataset_name in implemented_datasets
 
     dataset = None
